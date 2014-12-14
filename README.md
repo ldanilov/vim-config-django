@@ -13,9 +13,21 @@ To begin with, follow these steps.
 
 Once this repo is clones, get all the third-party packages. 
 
-Do this: 
+1. Do this: 
 
+```
 git submodule update --init --recursive
+```
+
+2. To get YouCompleteMe working, do this:
+
+On Mac (requires xcode installed):
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+```
+
+Otherwise, read 'bundle/YouCompleteMe/README.md'
 
 Pathogen Setup
 ===============================================
