@@ -16,3 +16,10 @@ Once this repo is clones, get all the third-party packages.
 Do this: 
 
 git submodule update --init --recursive
+
+Pathogen Setup
+===============================================
+
+This setup uses vom-pathogen. It's located in bundles dir
+with all the other extensions. The 'autoload' is sym-linked
+to the 'bundle/vim-pathogen/autoload'
