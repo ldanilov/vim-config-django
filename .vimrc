@@ -1,4 +1,6 @@
-execute pathogen#infect()
+call pathogen#infect()
+call pathogen#helptags()
+
 
 set ruler
 set tabstop=4
@@ -104,3 +106,29 @@ let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
 let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+
+" source: http://vim.wikia.com/wiki/Access_Python_Help
+" function! ShowPydoc(what)
+"   let bufname = a:what . ".pydoc"
+"   " check if the buffer exists already
+"   if bufexists(bufname)
+"     let winnr = bufwinnr(bufname)
+"     if winnr != -1
+"       " if the buffer is already displayed, switch to that window
+"       execute winnr "wincmd w"
+"     else
+"       " otherwise, open the buffer in a split
+"       execute "sbuffer" bufname
+"     endif
+"   else
+"     " create a new buffer, set the nofile buftype and don't display it in the
+"     " buffer list
+"     execute "split" fnameescape(bufname)
+"     setlocal buftype=nofile
+"     setlocal nobuflisted
+"     " read the output from pydoc
+"     execute "r !" . shellescape(s:pydoc_path, 1) . " " . shellescape(a:what, 1)
+"   endif
+"   " go to the first line of the document
+"   1
+" endfunction
