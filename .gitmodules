@@ -50,3 +50,7 @@
 	path = bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify
 	ignore = dirty
+[submodule "bundle/dash"]
+	path = bundle/dash
+	url = https://github.com/rizzatti/dash.vim
+	ignore = dirty
