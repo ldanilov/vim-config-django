@@ -132,3 +132,9 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 "   " go to the first line of the document
 "   1
 " endfunction
+
+" The following has Vim jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
