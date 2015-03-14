@@ -54,3 +54,6 @@
 	path = bundle/dash
 	url = https://github.com/rizzatti/dash.vim
 	ignore = dirty
+[submodule "bundle/vaxe"]
+	path = bundle/vaxe
+	url = https://github.com/jdonaldson/vaxe
