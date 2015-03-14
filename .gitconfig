@@ -1,0 +1,78 @@
+[alias]
+    ci = commit
+    lc = log ORIG_HEAD.. --stat --no-merges
+    st = status
+
+    # Must Have Git Aliases: Advanced Examples
+    # From http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+    #
+    # List commits in short form, with colors and branch/tag annotations.
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    # List commits showing changed files
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %ad%Cgreen" --decorate --numstat --date=short
+    # List oneline commits showing dates
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    # List oneline commits showing relative dates
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    # default look for short git log
+    le = log --oneline --decorate
+
+    # You can see all the commits related to a file, with the diff of the changes with git log -u which i shortened to fl for filelog
+    filelog = log -u
+    fl = log -u
+    
+    # check what was in the last commit
+    dl = "!git ll -1"
+    dlc = diff --cached HEAD^
+
+    # if the commit you want to inspect is not the last one
+    dr  = "!f() { git diff "$1"^.."$1"; }; f"
+    lc  = "!f() { git ll "$1"^.."$1"; }; f"
+    diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+
+    # Find a file path in codebase:
+    f = "!git ls-files | grep -i"
+
+    # Search/grep your entire codebase for a string
+    grep = grep -Ii
+    
+    # List all of these aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    # Rename [branch] to done-[branch]
+    # In some of my workflows I wanted to quickly rename branches prepending done- to their names. Here is the alias that came out of that workflow:
+    # done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+
+    # Show the last tag:
+    lasttag = describe --tags --abbrev=0
+    lt = describe --tags --abbrev=0
+
+    # Merge aliases
+    # Being the Branch/Integration manager at my current client, I use these constantly to merge stuff
+    # ours = "!f() { git co --ours $@ && git add $@; }; f"
+    # theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+    # Basic shortcuts
+    # cp = cherry-pick
+    # st = status -s
+    # cl = clone
+    # ci = commit
+    # co = checkout
+    br = branch -a -vv 
+    diff = diff --word-diff
+    # dc = diff --cached
+    
+
+    # From https://git.wiki.kernel.org/index.php/Aliases
+    #
+    # Spelunking of the project's history
+    whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+        whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
+    # Use graphviz for display
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+
+    # Getting pretty logs
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[color]
+    ui = true
