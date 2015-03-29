@@ -89,6 +89,9 @@ func PreviewWord()
   endif
 endfun
 
+"echo searchpair('{', '', '}', 'bW',
+"         \ 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string"')
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin configs
@@ -193,8 +196,9 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 """""""""""""""""""""""""""""""""""
 " Python-only: execute ctags from the file given installed packages
-map <F12> :!ctags -R --exclude=node_modules --exclude=.meteor --exclude='packages/*/.build/' -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()`<CR>
+map <F12> :!ctags -R --exclude=node_modules --exclude=.meteor --exclude=*.min.js --exclude=*.pack.js --exclude=*IPython* --exclude='packages/*/.build/' -f ./tags-site-packages `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"` <CR> !ctags -R --exclude=node_modules --exclude=.meteor --exclude=*.min.js --exclude=*.pack.js --exclude='packages/*/.build/' -f ./tags ./* <CR>
 
+set tags=./tags,./tags-site-packages;
 """""""""""""""""""""""""""""""""""
 " source: http://vim.wikia.com/wiki/Access_Python_Help
 function! ShowPydoc(what)
