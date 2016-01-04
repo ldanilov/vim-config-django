@@ -1,8 +1,8 @@
 What is this?
 ===============================================
 
-This is Lev's own vim set up so that he doesn't have to do 
-it over again every time he needs to set up a new environment.
+This is my own vim set up for mac so I would not have to do 
+it over again every time I needs to set up a new environment.
 
 It uses `git submodule` to sync up with third party repo's.
 
@@ -13,26 +13,21 @@ Once this repo is cloned, get all the third-party packages.
 
 1. Clone it to `~/.vim` directory
 
-2. Create a symlink in your `~/` to `.vimrc` running:
+2. Install on OSX with:
 
+**Important: read through the file to see what it does.**
 ```
-cd ~/ \
-ln -s .vim/.vimrc
-```
-
-3. Run this to clone all of the submodules I use: 
-
-```
-git submodule update --init --recursive
+bash ~/.vim/install-mac.sh
 ```
 
-4. To get YouCompleteMe working, run this:
+3. Update on OSX with: (Skip this if you just did Step 2)
 
-On Mac (requires xcode and MacVim installed)
+**Important: read through the file to see what it does.**
 ```
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
+bash ~/.vim/update-mac.sh
 ```
+
+### Note: To get YouCompleteMe working on Mac install xcode.
 
 Otherwise, read 'bundle/YouCompleteMe/README.md'
 
