@@ -26,6 +26,7 @@ set expandtab
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
+set shell=/bin/bash
 
 """""""""""""""""""""""""""""""""""
 syntax on
@@ -116,20 +117,26 @@ let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 map <F7> :TlistToggle<CR>
 
-"""""""""""""""""""""""""""""""""""
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
-"""""""""""""""""""""""""""""""""""
-" Recommended settings for YouCompleteMe
+""""""""""""""""""""""""""""""""""""
+"nnoremap <leader>jd :YcmCompleter GoTo<CR>
+"
+""""""""""""""""""""""""""""""""""""
+"" Recommended settings for YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 
-"""""""""""""""""""""""""""""""""""
-" Recommended UltiSnips setings for YouCompleteMe
-let g:UltiSnipsExpandTrigger       = "<c-j>"
+""""""""""""""""""""""""""""""""""""
+"" Log settings for YouCompleteMe
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+"
+""""""""""""""""""""""""""""""""""""
+"" Recommended UltiSnips setings for YouCompleteMe
+let g:UltiSnipsExpandTrigger       = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
 let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
@@ -242,5 +249,5 @@ let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:packag
 
 """""""""""""""""""""""""""""""""""
 " Generate a ctags file for the current build target.
-au FileType hx set VaxeStartCompletionServer
-au FileType hx set VaxeCtags
+" au FileType hx set VaxeStartCompletionServer
+" au FileType hx set VaxeCtags
