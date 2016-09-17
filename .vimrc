@@ -133,7 +133,7 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 "" Log settings for YouCompleteMe
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/local/var/pyenv/shims/python'
 "
 """"""""""""""""""""""""""""""""""""
 "" Recommended UltiSnips setings for YouCompleteMe

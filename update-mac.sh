@@ -10,7 +10,7 @@ done
 # Vim needs to compile with python support
 # and 'system' version (OSX - I use pyenv) works best
 pre_update_python_version="$(pyenv global)"
-pyenv global system
+pyenv global 2.7
 ######################
 # Update brew (to update vim)
 brew update
