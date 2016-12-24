@@ -57,3 +57,8 @@
 [submodule "bundle/vaxe"]
 	path = bundle/vaxe
 	url = https://github.com/jdonaldson/vaxe
+	ignore = dirty
+[submodule "bundle/bash-support"]
+	path = bundle/bash-support
+	url = https://github.com/WolfgangMehner/bash-support
+	ignore = dirty
