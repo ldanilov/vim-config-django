@@ -26,7 +26,7 @@ set expandtab
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
-set shell=/bin/bash
+set shell=/bin/zsh
 set paste
 
 """""""""""""""""""""""""""""""""""
